@@ -42,12 +42,28 @@ const reduceTest = (str) => str.split('')
 			accum.at(-1) === item ? accum : [...accum, item]
 		, []).join('');
 
+const whileTest = (str) => {
+	let res = str[0];
+	let s = str[0];
+	let i = 1;
+
+	while (i < str.length) {
+		if (str[i] !== s) {
+			res += str[i];
+			s = str[i];
+		}
+		i++;
+	}
+
+	return res;
+};
+
 // test mapTest
-console.time('mapTest')
-for (let i = 0; i < 1000; i++) {
-	mapTest(str2k)
-}
-console.timeEnd('mapTest')
+// console.time('mapTest')
+// for (let i = 0; i < 1000; i++) {
+// 	mapTest(str2k)
+// }
+// console.timeEnd('mapTest')
 
 // test forTest
 // console.time('forTest')
@@ -69,3 +85,10 @@ console.timeEnd('mapTest')
 // 	reduceTest(str2k)
 // }
 // console.timeEnd('reduceTest')
+
+// test whileTest
+console.time('whileTest')
+for (let i = 0; i < 1000; i++) {
+	whileTest(str2k)
+}
+console.timeEnd('whileTest')
